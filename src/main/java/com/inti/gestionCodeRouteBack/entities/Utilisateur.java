@@ -19,6 +19,8 @@ import javax.persistence.OneToMany;
 
 import antlr.collections.List;
 
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+
 @Entity
 public class Utilisateur implements Serializable{
 	@Id
