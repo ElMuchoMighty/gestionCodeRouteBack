@@ -24,7 +24,7 @@ public class AutoEcole {
 	@OneToMany(mappedBy = "autoecole")
 	private List<Utilisateur> utilisateurAutoEcole;
 	@OneToMany(mappedBy = "autoecole")
-	private List<Moniteurs> moniteursAutoEcole;
+	private List<Moniteur> moniteurAutoEcole;
 	@OneToMany(mappedBy = "autoecole")
 	private List<RendezVous> rendezVousAutoEcole;
 	
@@ -32,7 +32,7 @@ public class AutoEcole {
 	}
 
 	public AutoEcole(Adresse adresseAutoEcole, String contactAutoEcole, String emailAutoEcole, long telephoneAutoEcole,
-			String enseigneAutoEcole, List<Utilisateur> utilisateurAutoEcole, List<Moniteurs> moniteursAutoEcole,
+			String enseigneAutoEcole, List<Utilisateur> utilisateurAutoEcole, List<Moniteur> moniteurAutoEcole,
 			List<RendezVous> rendezVousAutoEcole) {
 		super();
 		this.adresseAutoEcole = adresseAutoEcole;
@@ -41,7 +41,7 @@ public class AutoEcole {
 		this.telephoneAutoEcole = telephoneAutoEcole;
 		this.enseigneAutoEcole = enseigneAutoEcole;
 		this.utilisateurAutoEcole = utilisateurAutoEcole;
-		this.moniteursAutoEcole = moniteursAutoEcole;
+		this.moniteurAutoEcole = moniteurAutoEcole;
 		this.rendezVousAutoEcole = rendezVousAutoEcole;
 	}
 
@@ -101,12 +101,12 @@ public class AutoEcole {
 		this.utilisateurAutoEcole = utilisateurAutoEcole;
 	}
 
-	public List<Moniteurs> getMoniteursAutoEcole() {
-		return moniteursAutoEcole;
+	public List<Moniteur> getMoniteurAutoEcole() {
+		return moniteurAutoEcole;
 	}
 
-	public void setMoniteursAutoEcole(List<Moniteurs> moniteursAutoEcole) {
-		this.moniteursAutoEcole = moniteursAutoEcole;
+	public void setMoniteurAutoEcole(List<Moniteur> moniteurAutoEcole) {
+		this.moniteurAutoEcole = moniteurAutoEcole;
 	}
 
 	public List<RendezVous> getRendezVousAutoEcole() {
