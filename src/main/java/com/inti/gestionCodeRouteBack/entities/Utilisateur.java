@@ -42,7 +42,7 @@ public class Utilisateur implements Serializable{
 	private Set<Cours> cours = new HashSet<>();
 	@OneToMany(mappedBy = "utilisateur")
 	private List<Rapport> rapports = new ArrayList<>();
-	@OneToMany(mappedBy = "utilisateur")
+	@OneToMany(mappedBy = "utilisateurFavoris")
 	private List<Favoris> favoris = new ArrayList<>();
 	@OneToMany(mappedBy = "utilisateur")
 	private List<PermisDeConduire> permisdeconduires = new ArrayList<>();

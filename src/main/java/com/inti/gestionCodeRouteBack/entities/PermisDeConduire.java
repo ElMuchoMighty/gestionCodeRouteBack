@@ -23,28 +23,25 @@ public class PermisDeConduire {
 	private String villePermis;
 	private String paysPermis;
 	@ManyToMany(fetch = FetchType.EAGER)
-	@JoinTable(joinColumns = @JoinColumn(name = "idPermis", referencedColumnName = "idPermis"), inverseJoinColumns = @JoinColumn(name = "idAssurance", referencedColumnName = "idAssurance"))
+	@JoinTable(joinColumns = @JoinColumn(name = "id_permis", referencedColumnName = "idPermis"), inverseJoinColumns = @JoinColumn(name = "id_assurance", referencedColumnName = "idAssurance"))
 	private Set<AssuranceAuto> assurance_auto = new HashSet<>();
 	@ManyToMany(fetch = FetchType.EAGER)
-	@JoinTable(joinColumns = @JoinColumn(name = "idPermis", referencedColumnName = "idPermis"), inverseJoinColumns = @JoinColumn(name = "idVehicules", referencedColumnName = "idVehicules"))
+	@JoinTable(joinColumns = @JoinColumn(name = "id_permis", referencedColumnName = "idPermis"), inverseJoinColumns = @JoinColumn(name = "id_vehicules", referencedColumnName = "idVehicules"))
 	private Set<Vehicules> vehicules = new HashSet<>();
 	@ManyToMany(fetch = FetchType.EAGER)
-	@JoinTable(joinColumns = @JoinColumn(name = "idPermis", referencedColumnName = "idPermis"), inverseJoinColumns = @JoinColumn(name = "idMoniteur", referencedColumnName = "idMoniteur"))
+	@JoinTable(joinColumns = @JoinColumn(name = "id_permis", referencedColumnName = "idPermis"), inverseJoinColumns = @JoinColumn(name = "id_moniteur", referencedColumnName = "idMoniteur"))
 	private Set<Moniteur> moniteurs = new HashSet<>();
 	@ManyToOne
 	@JoinColumn(name = "id_utilisateur")
 	private Utilisateur utilisateur;
 
 	public PermisDeConduire() {
-		super();
-		// TODO Auto-generated constructor stub
 	}
 	
 
 	public PermisDeConduire(Long idPermis, String libPermis, String villePermis, String paysPermis,
 			Set<AssuranceAuto> assurance_auto, Set<Vehicules> vehicules, Set<Moniteur> moniteurs,
 			Utilisateur utilisateur) {
-		super();
 		this.idPermis = idPermis;
 		this.libPermis = libPermis;
 		this.villePermis = villePermis;
@@ -120,11 +117,6 @@ public class PermisDeConduire {
 		this.utilisateur = utilisateur;
 	}
 
-	@Override
-	public String toString() {
-		return "PermisDeConduire [idPermis=" + idPermis + ", libPermis=" + libPermis + ", villePermis=" + villePermis
-				+ ", paysPermis=" + paysPermis + ", assurance_auto=" + assurance_auto + ", vehicules=" + vehicules
-				+ ", moniteurs=" + moniteurs + ", utilisateur=" + utilisateur + "]";
-	}
+
 	
 }
