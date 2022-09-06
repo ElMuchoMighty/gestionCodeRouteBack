@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,10 +17,6 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-
-import antlr.collections.List;
-
-import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 @Entity
 public class Utilisateur implements Serializable{
@@ -45,7 +42,7 @@ public class Utilisateur implements Serializable{
 	private Set<Cours> cours = new HashSet<>();
 	@OneToMany(mappedBy = "utilisateur")
 	private List<Rapport> rapports = new ArrayList<>();
-	@OneToMany(mappedBy = "utilisateur")
+	@OneToMany(mappedBy = "utilisateurFavoris")
 	private List<Favoris> favoris = new ArrayList<>();
 	@OneToMany(mappedBy = "utilisateur")
 	private List<PermisDeConduire> permisdeconduires = new ArrayList<>();

@@ -1,12 +1,17 @@
 package com.inti.gestionCodeRouteBack.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Test implements Serializable {
@@ -16,33 +21,39 @@ public class Test implements Serializable {
 	private Long idTest;
 	@Lob
 	private byte[] image;
-	private String question;
 	private String reponse;
-	private int codeReponse;
 	private int timerRep;
+	@OneToMany(mappedBy = "test")
+	private List<Reponse> questions = new ArrayList<>();
+	@ManyToOne
+	@JoinColumn(name = "id_examenBlanc")
+	private ExamenBlanc examenBlanc;
+	@ManyToOne
+	@JoinColumn
+	private ExamenFinal examenFinal;
 
 	public Test() {
 	}
 
-	
-	
-	public Test(Long idTest, byte[] image, String question, String reponse, int codeReponse, int timerRep) {
+	public Test(Long idTest, byte[] image, String reponse, int timerRep, List<Reponse> questions,
+			ExamenBlanc examenBlanc, ExamenFinal examenFinal) {
 		this.idTest = idTest;
 		this.image = image;
-		this.question = question;
 		this.reponse = reponse;
-		this.codeReponse = codeReponse;
 		this.timerRep = timerRep;
+		this.questions = questions;
+		this.examenBlanc = examenBlanc;
+		this.examenFinal = examenFinal;
 	}
 
-
-
-	public Test(byte[] image, String question, String reponse, int codeReponse, int timerRep) {
+	public Test(byte[] image, String reponse, int timerRep, List<Reponse> questions, ExamenBlanc examenBlanc,
+			ExamenFinal examenFinal) {
 		this.image = image;
-		this.question = question;
 		this.reponse = reponse;
-		this.codeReponse = codeReponse;
 		this.timerRep = timerRep;
+		this.questions = questions;
+		this.examenBlanc = examenBlanc;
+		this.examenFinal = examenFinal;
 	}
 
 	public Long getIdTest() {
@@ -61,28 +72,12 @@ public class Test implements Serializable {
 		this.image = image;
 	}
 
-	public String getQuestion() {
-		return question;
-	}
-
-	public void setQuestion(String question) {
-		this.question = question;
-	}
-
 	public String getReponse() {
 		return reponse;
 	}
 
 	public void setReponse(String reponse) {
 		this.reponse = reponse;
-	}
-
-	public int getCodeReponse() {
-		return codeReponse;
-	}
-
-	public void setCodeReponse(int codeReponse) {
-		this.codeReponse = codeReponse;
 	}
 
 	public int getTimerRep() {
@@ -92,7 +87,34 @@ public class Test implements Serializable {
 	public void setTimerRep(int timerRep) {
 		this.timerRep = timerRep;
 	}
+
+	public List<Reponse> getQuestions() {
+		return questions;
+	}
+
+	public void setQuestions(List<Reponse> questions) {
+		this.questions = questions;
+	}
+
+	public ExamenBlanc getExamenBlanc() {
+		return examenBlanc;
+	}
+
+	public void setExamenBlanc(ExamenBlanc examenBlanc) {
+		this.examenBlanc = examenBlanc;
+	}
+
+	public ExamenFinal getExamenFinal() {
+		return examenFinal;
+	}
+
+	public void setExamenFinal(ExamenFinal examenFinal) {
+		this.examenFinal = examenFinal;
+	}
 	
 	
+	
+	
+
 
 }

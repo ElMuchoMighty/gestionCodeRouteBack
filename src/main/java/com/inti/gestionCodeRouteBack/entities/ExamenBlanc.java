@@ -1,33 +1,50 @@
 package com.inti.gestionCodeRouteBack.entities;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
-public class ExamenBlanc extends Test{
+public class ExamenBlanc {
+	
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long idExamenBlanc;
 	
 	private int resultatBlanc;
 	private String commentaireBlanc;
-	
-	
+	@OneToMany(mappedBy = "examenBlanc")
+	private List<Test> tests = new ArrayList<>();
 	
 	public ExamenBlanc() {
-		super();
 	}
 
 
 
-
-
-
-	public ExamenBlanc(Long idTest, byte[] image, String question, String reponse, int codeReponse, int timerRep,
-			int resultatBlanc, String commentaire) {
-		super(idTest, image, question, reponse, codeReponse, timerRep);
+	public ExamenBlanc(Long idExamenBlanc, int resultatBlanc, String commentaireBlanc, List<Test> tests) {
+		this.idExamenBlanc = idExamenBlanc;
 		this.resultatBlanc = resultatBlanc;
 		this.commentaireBlanc = commentaireBlanc;
+		this.tests = tests;
 	}
 
 
 
+	public Long getIdExamenBlanc() {
+		return idExamenBlanc;
+	}
+
+
+
+	public void setIdExamenBlanc(Long idExamenBlanc) {
+		this.idExamenBlanc = idExamenBlanc;
+	}
 
 
 
@@ -35,29 +52,35 @@ public class ExamenBlanc extends Test{
 		return resultatBlanc;
 	}
 
-
-
 	public void setResultatBlanc(int resultatBlanc) {
 		this.resultatBlanc = resultatBlanc;
 	}
-
-
-
-
-
 
 	public String getCommentaireBlanc() {
 		return commentaireBlanc;
 	}
 
-
-
-
-
-
 	public void setCommentaireBlanc(String commentaireBlanc) {
 		this.commentaireBlanc = commentaireBlanc;
 	}
+
+	public List<Test> getTests() {
+		return tests;
+	}
+
+	public void setTests(List<Test> tests) {
+		this.tests = tests;
+	}
+	
+	
+	
+	
+
+
+
+
+
+
 
 
 

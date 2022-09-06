@@ -3,6 +3,7 @@ package com.inti.gestionCodeRouteBack.entities;
 import java.util.List;
 
 import javax.annotation.Generated;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,6 +17,7 @@ public class AutoEcole {
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	private Long idAutoEcole;
+	@Embedded
 	private Adresse adresseAutoEcole;
 	private String contactAutoEcole;
 	private String emailAutoEcole;
@@ -25,7 +27,7 @@ public class AutoEcole {
 	private List<Utilisateur> utilisateurAutoEcole;
 	@OneToMany(mappedBy = "autoecole")
 	private List<Moniteur> moniteurAutoEcole;
-	@OneToMany(mappedBy = "autoecole")
+	@OneToMany(mappedBy = "autoEcoleRendezVous")
 	private List<RendezVous> rendezVousAutoEcole;
 	
 	public AutoEcole() {

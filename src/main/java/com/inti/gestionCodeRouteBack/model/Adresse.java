@@ -1,5 +1,8 @@
 package com.inti.gestionCodeRouteBack.model;
 
+import javax.persistence.Embeddable;
+
+@Embeddable
 public class Adresse {
 
 	private String region;
