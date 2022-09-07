@@ -58,9 +58,12 @@ public class Utilisateur implements Serializable{
 
 	}
 
+
+
 	public Utilisateur(String nomUtilisateur, String prenomUtilisateur, String username, String password,
 			String dateNaissanceUtilisateur, String emailUtilisateur, long telUtilisateur, Set<Role> roles,
-			Set<Test> tests, Set<Cours> cours, AutoEcole autoecole) {
+			Set<Test> tests, Set<Cours> cours, List<Rapport> rapports, List<Favoris> favoris,
+			List<PermisDeConduire> permisdeconduires, AutoEcole autoecole) {
 		this.nomUtilisateur = nomUtilisateur;
 		this.prenomUtilisateur = prenomUtilisateur;
 		this.username = username;
@@ -71,8 +74,13 @@ public class Utilisateur implements Serializable{
 		this.roles = roles;
 		this.tests = tests;
 		this.cours = cours;
+		this.rapports = rapports;
+		this.favoris = favoris;
+		this.permisdeconduires = permisdeconduires;
 		this.autoecole = autoecole;
 	}
+
+
 
 	public Long getIdUtilisateur() {
 		return idUtilisateur;
