@@ -31,11 +31,11 @@ public class RendezVousController {
 		return rendezVousService.findOne(id);
 	}
 	
-	@PostMapping("/rendezVous") public RendezVous saveRendezVous(@RequestBody RendezVous rendezVous) { 
-	RendezVous currentUser=new RendezVous(rendezVous.getDateRendezVous(),rendezVous.getHeureRendezVous(),rendezVous.getAutoEcoleRendezVous()); 
-		return rendezVousService.save(currentUser); }
+	@PostMapping("/rendezVous") 
+	public RendezVous saveRendezVous(@RequestBody RendezVous rendezVous) { 
+		return rendezVousService.save(rendezVous); 
+		}
 	 
-
 	@DeleteMapping("/rendezVous/{idRendezVous}") 
 	public void deleteRendezVous(@PathVariable("idRendezVous") Long id) {
 		rendezVousService.delete(id);

@@ -31,9 +31,10 @@ public class CoursController {
 		return coursService.findOne(id);
 	}
 	
-	@PostMapping("/cours") public Cours saveCours(@RequestBody Cours cours) { 
-	Cours currentUser=new Cours(cours.getComplexiteCours(),cours.getContenuCours(),cours.getNbrHeuresCours(), cours.getFormatCours(),cours.getThematiqueCours()); 
-		return coursService.save(currentUser); }
+	@PostMapping("/cours") 
+	public Cours saveCours(@RequestBody Cours cours) { 
+		return coursService.save(cours); 
+		}
 	 
 
 	@DeleteMapping("/cours/{idCours}") 

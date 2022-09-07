@@ -31,9 +31,9 @@ public class FavorisController {
 		return favorisService.findOne(id);
 	}
 	
-	@PostMapping("/favoris") public Favoris saveFavoris(@RequestBody Favoris favoris) { 
-	Favoris currentUser=new Favoris(favoris.getDateExamenFavoris(),favoris.getExamenConduiteFavoris(),favoris.getUtilisateurFavoris());
-		return favorisService.save(currentUser); }
+	@PostMapping("/favoris") 
+	public Favoris saveFavoris(@RequestBody Favoris favoris) { 
+		return favorisService.save(favoris); }
 	 
 
 	@DeleteMapping("/favoris/{idFavoris}") 

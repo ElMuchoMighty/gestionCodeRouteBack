@@ -31,9 +31,10 @@ public class AutoEcoleController {
 	return autoEcoleService.findOne(id);
 	}
 	
-	@PostMapping("/autoEcole") public AutoEcole saveAutoEcole(@RequestBody AutoEcole autoEcole) { 
-	AutoEcole currentUser=new AutoEcole(autoEcole.getAdresseAutoEcole(),autoEcole.getContactAutoEcole(),autoEcole.getEmailAutoEcole(),autoEcole.getTelephoneAutoEcole(), autoEcole.getEnseigneAutoEcole(),autoEcole.getUtilisateurAutoEcole(),autoEcole.getMoniteurAutoEcole(),autoEcole.getRendezVousAutoEcole()); 
-	return autoEcoleService.save(currentUser); }
+	@PostMapping("/autoEcole") 
+	public AutoEcole saveAutoEcole(@RequestBody AutoEcole autoEcole) { 
+	return autoEcoleService.save(autoEcole); 
+	}
 	 
 
 	@DeleteMapping("/autoEcole/{idAutoEcole}") 

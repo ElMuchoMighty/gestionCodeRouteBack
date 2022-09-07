@@ -31,9 +31,10 @@ public class RapportController {
 		return rapportService.findOne(id);
 	}
 	
-	@PostMapping("/rapport") public Rapport saveRapport(@RequestBody Rapport rapport) { 
-	Rapport currentUser=new Rapport(rapport.getTitreRapport(),rapport.getContenuRapport(),rapport.getUtilisateur());
-		return rapportService.save(currentUser); }
+	@PostMapping("/rapport") 
+	public Rapport saveRapport(@RequestBody Rapport rapport) { 
+		return rapportService.save(rapport); 
+		}
 	 
 
 	@DeleteMapping("/rapport/{idRapport}") 
