@@ -16,18 +16,18 @@ public class Cours {
 	private String contenuCours;
 	private int complexiteCours;
 	private String thematiqueCours;
-	private String formatCoursCours;
+	private String formatCours;
 	
 	public Cours() {
 	}
 	
 	public Cours(int nbrHeuresCours, String contenuCours, int complexiteCours, String thematiqueCours,
-			String formatCoursCours) {
+			String formatCours) {
 		this.nbrHeuresCours = nbrHeuresCours;
 		this.contenuCours = contenuCours;
 		this.complexiteCours = complexiteCours;
 		this.thematiqueCours = thematiqueCours;
-		this.formatCoursCours = formatCoursCours;
+		this.formatCours = formatCours;
 	}
 
 	public Long getIdCours() {
@@ -70,12 +70,13 @@ public class Cours {
 		this.thematiqueCours = thematiqueCours;
 	}
 
-	public String getFormatCoursCours() {
-		return formatCoursCours;
+	public String getFormatCours() {
+		return formatCours;
 	}
 
-	public void setFormatCoursCours(String formatCoursCours) {
-		this.formatCoursCours = formatCoursCours;
+	public void setFormatCours(String formatCours) {
+		this.formatCours = formatCours;
 	}
+
 
 }
