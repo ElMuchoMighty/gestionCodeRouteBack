@@ -21,10 +21,11 @@ public class Test implements Serializable {
 	private Long idTest;
 	@Lob
 	private byte[] image;
-	private String reponse;
+	private String question;
+	private int codeBonneReponse;
 	private int timerRep;
 	@OneToMany(mappedBy = "test")
-	private List<Reponse> questions = new ArrayList<>();
+	private List<Reponse> reponses = new ArrayList<>();
 	@ManyToOne
 	@JoinColumn(name = "id_examenBlanc")
 	private ExamenBlanc examenBlanc;
@@ -35,23 +36,14 @@ public class Test implements Serializable {
 	public Test() {
 	}
 
-	public Test(Long idTest, byte[] image, String reponse, int timerRep, List<Reponse> questions,
+	public Test(byte[] image, String question, int codeBonneReponse, int timerRep, List<Reponse> reponses,
 			ExamenBlanc examenBlanc, ExamenFinal examenFinal) {
-		this.idTest = idTest;
+		super();
 		this.image = image;
-		this.reponse = reponse;
+		this.question = question;
+		this.codeBonneReponse = codeBonneReponse;
 		this.timerRep = timerRep;
-		this.questions = questions;
-		this.examenBlanc = examenBlanc;
-		this.examenFinal = examenFinal;
-	}
-
-	public Test(byte[] image, String reponse, int timerRep, List<Reponse> questions, ExamenBlanc examenBlanc,
-			ExamenFinal examenFinal) {
-		this.image = image;
-		this.reponse = reponse;
-		this.timerRep = timerRep;
-		this.questions = questions;
+		this.reponses = reponses;
 		this.examenBlanc = examenBlanc;
 		this.examenFinal = examenFinal;
 	}
@@ -72,12 +64,20 @@ public class Test implements Serializable {
 		this.image = image;
 	}
 
-	public String getReponse() {
-		return reponse;
+	public String getQuestion() {
+		return question;
 	}
 
-	public void setReponse(String reponse) {
-		this.reponse = reponse;
+	public void setQuestion(String question) {
+		this.question = question;
+	}
+
+	public int getCodeBonneReponse() {
+		return codeBonneReponse;
+	}
+
+	public void setCodeBonneReponse(int codeBonneReponse) {
+		this.codeBonneReponse = codeBonneReponse;
 	}
 
 	public int getTimerRep() {
@@ -88,12 +88,12 @@ public class Test implements Serializable {
 		this.timerRep = timerRep;
 	}
 
-	public List<Reponse> getQuestions() {
-		return questions;
+	public List<Reponse> getReponses() {
+		return reponses;
 	}
 
-	public void setQuestions(List<Reponse> questions) {
-		this.questions = questions;
+	public void setReponses(List<Reponse> reponses) {
+		this.reponses = reponses;
 	}
 
 	public ExamenBlanc getExamenBlanc() {
@@ -111,10 +111,5 @@ public class Test implements Serializable {
 	public void setExamenFinal(ExamenFinal examenFinal) {
 		this.examenFinal = examenFinal;
 	}
-	
-	
-	
-	
-
 
 }

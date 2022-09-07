@@ -36,12 +36,14 @@ public class TestController {
 	
 	@PostMapping("/tests")
 	public String saveTest(@RequestParam("fileTest") MultipartFile file,
-			@RequestParam("reponseTest") String reponse,
-			@RequestParam("timerRepTest") int timerrep) {
+			@RequestParam("question") String question,
+			@RequestParam("codeBonneReponse") int codeBonneReponse,
+			@RequestParam("timerRep") int timerrep) {
 		try {
 			Test currentTest = new Test();
 			currentTest.setImage(file.getBytes());
-			currentTest.setReponse(reponse);
+			currentTest.setQuestion(question);
+			currentTest.setCodeBonneReponse(codeBonneReponse);
 			currentTest.setTimerRep(timerrep);
 			testService.save(currentTest);
 			return "File uploaded successfully! filename=" + file.getOriginalFilename();
