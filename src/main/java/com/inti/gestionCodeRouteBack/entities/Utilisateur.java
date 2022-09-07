@@ -51,7 +51,7 @@ public class Utilisateur implements Serializable{
 	@OneToMany(mappedBy = "utilisateur")
 	private List<PermisDeConduire> permisdeconduires = new ArrayList<>();
 	@ManyToOne
-	@JoinColumn(name = "id_user")
+	@JoinColumn(name = "id_autoEcole")
 	private AutoEcole autoecole;
 
 	public Utilisateur() {
