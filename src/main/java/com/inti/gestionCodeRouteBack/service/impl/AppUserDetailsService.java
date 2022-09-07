@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import com.inti.gestionCodeRouteBack.entities.Role;
 import com.inti.gestionCodeRouteBack.entities.Utilisateur;
+import com.inti.gestionCodeRouteBack.model.UtilisateurDetail;
 import com.inti.gestionCodeRouteBack.service.interfaces.IUtilisateurService;
 
 @Service
