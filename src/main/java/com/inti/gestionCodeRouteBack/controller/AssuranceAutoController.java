@@ -25,22 +25,22 @@ public class AssuranceAutoController {
 	@Autowired
 	IAssuranceAutoService assuranceAutoService;
 
-	@GetMapping("/assuranceAuto") // @RequestMapping(value="assuranceAuto", method=RequestMethod.GET)
+	@GetMapping("/assuranceAutos") // @RequestMapping(value="assuranceAuto", method=RequestMethod.GET)
 	public List<AssuranceAuto> findAll() {
 		return assuranceAutoService.findAll();
 	}
 
-	@GetMapping("/assuranceAuto/{idAssuranceAuto}") // @RequestMapping(value="/assuranceAuto/{idAssuranceAuto}", method=RequestMethod.GET)
+	@GetMapping("/assuranceAutos/{idAssuranceAuto}") // @RequestMapping(value="/assuranceAuto/{idAssuranceAuto}", method=RequestMethod.GET)
 	public AssuranceAuto findOne(@PathVariable("idAssuranceAuto") Long id) {
 		return assuranceAutoService.findOne(id);
 	}
 	
-	@PostMapping("/assuranceAuto") // @RequestMapping(value="/assuranceAuto", method=RequestMethod.POST)
+	@PostMapping("/assuranceAutos") // @RequestMapping(value="/assuranceAuto", method=RequestMethod.POST)
 	public AssuranceAuto saveAssuranceAuto(@RequestBody AssuranceAuto assuranceAuto) {
 		return assuranceAutoService.save(assuranceAuto);
 	}
 
-	@DeleteMapping("/assuranceAuto/{idAssuranceAuto}") // @RequestMapping(value="/assuranceAuto/{idAssuranceAuto}", method=RequestMethod.DELETE)
+	@DeleteMapping("/assuranceAutos/{idAssuranceAuto}") // @RequestMapping(value="/assuranceAuto/{idAssuranceAuto}", method=RequestMethod.DELETE)
 	public void deleteAssuranceAuto(@PathVariable("idAssuranceAuto") Long id) {
 		assuranceAutoService.delete(id);
 	}

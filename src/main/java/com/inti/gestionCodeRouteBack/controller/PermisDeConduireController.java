@@ -25,22 +25,22 @@ public class PermisDeConduireController {
 	@Autowired
 	IPermisDeConduireService permisDeConduireService;
 
-	@GetMapping("/permisDeConduire") // @RequestMapping(value="permisDeConduire", method=RequestMethod.GET)
+	@GetMapping("/permisDeConduires") // @RequestMapping(value="permisDeConduire", method=RequestMethod.GET)
 	public List<PermisDeConduire> findAll() {
 		return permisDeConduireService.findAll();
 	}
 
-	@GetMapping("/permisDeConduire/{idPermisDeConduire}") // @RequestMapping(value="/permisDeConduire/{idPermisDeConduire}", method=RequestMethod.GET)
+	@GetMapping("/permisDeConduires/{idPermisDeConduire}") // @RequestMapping(value="/permisDeConduire/{idPermisDeConduire}", method=RequestMethod.GET)
 	public PermisDeConduire findOne(@PathVariable("idPermisDeConduire") Long id) {
 		return permisDeConduireService.findOne(id);
 	}
 	
-	@PostMapping("/permisDeConduire") // @RequestMapping(value="/permisDeConduire", method=RequestMethod.POST)
+	@PostMapping("/permisDeConduires") // @RequestMapping(value="/permisDeConduire", method=RequestMethod.POST)
 	public PermisDeConduire savePermisDeConduire(@RequestBody PermisDeConduire permisDeConduire) {
 		return permisDeConduireService.save(permisDeConduire);
 	}
 
-	@DeleteMapping("/permisDeConduire/{idPermisDeConduire}") // @RequestMapping(value="/permisDeConduire/{idPermisDeConduire}", method=RequestMethod.DELETE)
+	@DeleteMapping("/permisDeConduires/{idPermisDeConduire}") // @RequestMapping(value="/permisDeConduire/{idPermisDeConduire}", method=RequestMethod.DELETE)
 	public void deletePermisDeConduire(@PathVariable("idPermisDeConduire") Long id) {
 		permisDeConduireService.delete(id);
 	}

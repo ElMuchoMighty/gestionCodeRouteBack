@@ -25,22 +25,22 @@ public class MoniteurController {
 	@Autowired
 	IMoniteurService moniteurService;
 
-	@GetMapping("/moniteur") // @RequestMapping(value="moniteur", method=RequestMethod.GET)
+	@GetMapping("/moniteurs") // @RequestMapping(value="moniteur", method=RequestMethod.GET)
 	public List<Moniteur> findAll() {
 		return moniteurService.findAll();
 	}
 
-	@GetMapping("/moniteur/{idMoniteur}") // @RequestMapping(value="/moniteur/{idMoniteur}", method=RequestMethod.GET)
+	@GetMapping("/moniteurs/{idMoniteur}") // @RequestMapping(value="/moniteur/{idMoniteur}", method=RequestMethod.GET)
 	public Moniteur findOne(@PathVariable("idMoniteur") Long id) {
 		return moniteurService.findOne(id);
 	}
 	
-	@PostMapping("/moniteur") // @RequestMapping(value="/moniteur", method=RequestMethod.POST)
+	@PostMapping("/moniteurs") // @RequestMapping(value="/moniteur", method=RequestMethod.POST)
 	public Moniteur saveMoniteur(@RequestBody Moniteur moniteur) {
 		return moniteurService.save(moniteur);
 	}
 
-	@DeleteMapping("/moniteur/{idMoniteur}") // @RequestMapping(value="/moniteur/{idMoniteur}", method=RequestMethod.DELETE)
+	@DeleteMapping("/moniteurs/{idMoniteur}") // @RequestMapping(value="/moniteur/{idMoniteur}", method=RequestMethod.DELETE)
 	public void deleteMoniteur(@PathVariable("idMoniteur") Long id) {
 		moniteurService.delete(id);
 	}
