@@ -21,23 +21,23 @@ public class AutoEcoleController {
 	@Autowired
 	AutoEcoleService autoEcoleService;
 	
-	@GetMapping("/autoEcole")
+	@GetMapping("/autoEcoles")
 	public List<AutoEcole> findAll() {
 	return autoEcoleService.findAll();
 	}
 	
-	@GetMapping("/autoEcole/{idAutoEcole}") 
+	@GetMapping("/autoEcoles/{idAutoEcole}") 
 	public AutoEcole findOne(@PathVariable("idAutoEcole") Long id) {
 	return autoEcoleService.findOne(id);
 	}
 	
-	@PostMapping("/autoEcole") 
+	@PostMapping("/autoEcoles") 
 	public AutoEcole saveAutoEcole(@RequestBody AutoEcole autoEcole) { 
 	return autoEcoleService.save(autoEcole); 
 	}
 	 
 
-	@DeleteMapping("/autoEcole/{idAutoEcole}") 
+	@DeleteMapping("/autoEcoles/{idAutoEcole}") 
 	public void deleteAutoEcole(@PathVariable("idAutoEcole") Long id) {
 		autoEcoleService.delete(id);
 	}

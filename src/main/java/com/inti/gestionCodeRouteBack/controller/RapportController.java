@@ -21,23 +21,23 @@ public class RapportController {
 	@Autowired
 	RapportService rapportService;
 	
-	@GetMapping("/rapport")
+	@GetMapping("/rapports")
 	public List<Rapport> findAll() {
 		return rapportService.findAll();
 	}
 	
-	@GetMapping("/rapport/{idRapport}") 
+	@GetMapping("/rapports/{idRapport}") 
 	public Rapport findOne(@PathVariable("idRapport") Long id) {
 		return rapportService.findOne(id);
 	}
 	
-	@PostMapping("/rapport") 
+	@PostMapping("/rapports") 
 	public Rapport saveRapport(@RequestBody Rapport rapport) { 
 		return rapportService.save(rapport); 
 		}
 	 
 
-	@DeleteMapping("/rapport/{idRapport}") 
+	@DeleteMapping("/rapports/{idRapport}") 
 	public void deleteRapport(@PathVariable("idRapport") Long id) {
 		rapportService.delete(id);
 	}
