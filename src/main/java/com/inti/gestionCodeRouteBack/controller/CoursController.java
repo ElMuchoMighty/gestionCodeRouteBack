@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -41,5 +42,18 @@ public class CoursController {
 	public void deleteCours(@PathVariable("idCours") Long id) {
 		coursService.delete(id);
 	}
-
+	@PutMapping("/cours/{idCours}") // http://localhost:9090/courss/2
+	public Cours updateCoursWithPut(@PathVariable("idCours") Long id /* id = 2 */,
+			@RequestBody Cours cours) { //
+		Cours currentUser = coursService.findOne(id); // nom = ayari, prenom = oussama, username=ouss,
+																	// password=ouss
+		System.out.println(currentUser.toString());
+		currentUser.setComplexiteCours(cours.getComplexiteCours()); // currentUser.setNomCours("Jean")
+		currentUser.setContenuCours(cours.getContenuCours()); // //
+																				// currentUser.setPrenomCours("Jean")
+		currentUser.setNbrHeuresCours(cours.getNbrHeuresCours());
+		currentUser.setThematiqueCours(cours.getThematiqueCours());
+		currentUser.setFormatCours(cours.getFormatCours());
+		return coursService.save(currentUser);
+	}
 }
