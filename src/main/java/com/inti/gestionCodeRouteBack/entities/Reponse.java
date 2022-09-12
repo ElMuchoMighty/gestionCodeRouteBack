@@ -9,6 +9,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
+
 @Entity
 public class Reponse implements Serializable {
 
@@ -22,6 +25,13 @@ public class Reponse implements Serializable {
 	private Test test;
 
 	public Reponse() {
+	}
+
+	public Reponse(Long idReponse, String contenuReponse, int codeReponse, Test test) {
+		this.idReponse = idReponse;
+		this.contenuReponse = contenuReponse;
+		this.codeReponse = codeReponse;
+		this.test = test;
 	}
 
 	public Reponse(String contenuReponse, int codeReponse, Test test) {

@@ -12,6 +12,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Transient;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Test implements Serializable {
@@ -25,6 +28,7 @@ public class Test implements Serializable {
 	private int codeBonneReponse;
 	private int timerRep;
 	@OneToMany(mappedBy = "test")
+	@Transient
 	private List<Reponse> reponses = new ArrayList<>();
 	@ManyToOne
 	@JoinColumn(name = "id_examenBlanc")
