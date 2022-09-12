@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -50,4 +51,18 @@ public class UtilisateurController {
 	public void deleteRole(@PathVariable("idUtilisateur") Long id) {
 		utilisateurService.delete(id);
 	}
+	@PutMapping("/utilisateurs/{idUtilisateur}") 
+	public Utilisateur updateUtilisateurWithPut(@PathVariable("idUtilisateur") Long id,@RequestBody Utilisateur utilisateur) { //
+		Utilisateur currentUser = utilisateurService.findOne(id); 
+		System.out.println(currentUser.toString());
+		currentUser.setNomUtilisateur(utilisateur.getNomUtilisateur()); 
+		currentUser.setPrenomUtilisateur(utilisateur.getPrenomUtilisateur());
+		currentUser.setUsername(utilisateur.getUsername());
+		currentUser.setPassword(utilisateur.getPassword());
+		currentUser.setDateNaissanceUtilisateur(utilisateur.getDateNaissanceUtilisateur());
+		currentUser.setTelUtilisateur(utilisateur.getTelUtilisateur());
+		currentUser.setEmailUtilisateur(utilisateur.getEmailUtilisateur());
+		return utilisateurService.save(currentUser);
+	}
+
 }

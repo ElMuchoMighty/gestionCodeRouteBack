@@ -1,5 +1,7 @@
 package com.inti.gestionCodeRouteBack.entities;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -8,7 +10,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Cours {
+public class Cours implements Serializable{
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	private Long idCours;
@@ -76,6 +78,13 @@ public class Cours {
 
 	public void setFormatCours(String formatCours) {
 		this.formatCours = formatCours;
+	}
+
+	@Override
+	public String toString() {
+		return "Cours [idCours=" + idCours + ", nbrHeuresCours=" + nbrHeuresCours + ", contenuCours=" + contenuCours
+				+ ", complexiteCours=" + complexiteCours + ", thematiqueCours=" + thematiqueCours + ", formatCours="
+				+ formatCours + "]";
 	}
 
 

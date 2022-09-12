@@ -18,39 +18,35 @@ import com.inti.gestionCodeRouteBack.service.impl.CoursService;
 @RestController
 @CrossOrigin
 public class CoursController {
-	
+
 	@Autowired
 	CoursService coursService;
-	
+
 	@GetMapping("/cours")
 	public List<Cours> findAll() {
 		return coursService.findAll();
 	}
-	
-	@GetMapping("/cours/{idCours}") 
+
+	@GetMapping("/cours/{idCours}")
 	public Cours findOne(@PathVariable("idCours") Long id) {
 		return coursService.findOne(id);
 	}
-	
-	@PostMapping("/cours") 
-	public Cours saveCours(@RequestBody Cours cours) { 
-		return coursService.save(cours); 
-		}
-	 
 
-	@DeleteMapping("/cours/{idCours}") 
+	@PostMapping("/cours")
+	public Cours saveCours(@RequestBody Cours cours) {
+		return coursService.save(cours);
+	}
+
+	@DeleteMapping("/cours/{idCours}")
 	public void deleteCours(@PathVariable("idCours") Long id) {
 		coursService.delete(id);
 	}
-	@PutMapping("/cours/{idCours}") // http://localhost:9090/courss/2
-	public Cours updateCoursWithPut(@PathVariable("idCours") Long id /* id = 2 */,
-			@RequestBody Cours cours) { //
-		Cours currentUser = coursService.findOne(id); // nom = ayari, prenom = oussama, username=ouss,
-																	// password=ouss
-		System.out.println(currentUser.toString());
-		currentUser.setComplexiteCours(cours.getComplexiteCours()); // currentUser.setNomCours("Jean")
-		currentUser.setContenuCours(cours.getContenuCours()); // //
-																				// currentUser.setPrenomCours("Jean")
+
+	@PutMapping("/cours/{idCours}")
+	public Cours updateCoursWithPut(@PathVariable("idCours") Long id, @RequestBody Cours cours) { //
+		Cours currentUser = coursService.findOne(id);
+		currentUser.setComplexiteCours(cours.getComplexiteCours());
+		currentUser.setContenuCours(cours.getContenuCours());
 		currentUser.setNbrHeuresCours(cours.getNbrHeuresCours());
 		currentUser.setThematiqueCours(cours.getThematiqueCours());
 		currentUser.setFormatCours(cours.getFormatCours());
