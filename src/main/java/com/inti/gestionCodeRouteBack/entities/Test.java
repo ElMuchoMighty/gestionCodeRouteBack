@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -27,14 +28,14 @@ public class Test implements Serializable {
 	private String question;
 	private int codeBonneReponse;
 	private int timerRep;
-	@OneToMany(mappedBy = "test")
+	@OneToMany(mappedBy = "test",cascade = CascadeType.REMOVE)
 	@Transient
 	private List<Reponse> reponses = new ArrayList<>();
 	@ManyToOne
 	@JoinColumn(name = "id_examenBlanc")
 	private ExamenBlanc examenBlanc;
 	@ManyToOne
-	@JoinColumn
+	@JoinColumn(name = "id_examenFinal")
 	private ExamenFinal examenFinal;
 
 	public Test() {
