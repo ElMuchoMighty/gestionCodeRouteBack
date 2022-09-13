@@ -18,5 +18,9 @@ public interface IUtilisateurService {
 	List<Utilisateur> findByNomUtilisateur(String nom);
 	
 	int nbrUtilisateurs();
+	
+	int nbrAdmin();
+	
+	int nbrCandidat();
 
 }

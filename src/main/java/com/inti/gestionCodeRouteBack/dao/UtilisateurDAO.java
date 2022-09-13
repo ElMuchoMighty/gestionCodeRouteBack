@@ -14,4 +14,8 @@ public interface UtilisateurDAO extends JpaRepository<Utilisateur, Long>{
 	List<Utilisateur> findByNomUtilisateur(String nom);
 	@Query(value = "SELECT count(*) FROM Utilisateur", nativeQuery = true)
 	int nbrUtilisateurs();
+	@Query(value = "SELECT count(*) FROM Utilisateur where id = 1", nativeQuery = true)
+	int nbrAdmin();
+	@Query(value = "SELECT count(*) FROM Utilisateur where id = 1", nativeQuery = true)
+	int nbrCandidat();
 }
