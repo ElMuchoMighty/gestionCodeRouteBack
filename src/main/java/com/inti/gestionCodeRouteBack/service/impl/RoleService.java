@@ -35,5 +35,15 @@ public class RoleService implements IRoleService{
 		
 		return roleDAO.findById(idRole).get();
 	}
+	
+	@Override
+	public int nbrAdmin() {
+		return roleDAO.nbrAdmin();
+	}
+
+	@Override
+	public int nbrCandidat() {
+		return roleDAO.nbrCandidat();
+	}
 
 }

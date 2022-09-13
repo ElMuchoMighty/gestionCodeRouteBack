@@ -16,4 +16,8 @@ public interface IRoleService {
 
 	void delete(Long id);
 	
+	int nbrAdmin();
+	
+	int nbrCandidat();
+	
 }

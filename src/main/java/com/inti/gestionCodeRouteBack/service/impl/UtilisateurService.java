@@ -51,4 +51,14 @@ public class UtilisateurService implements IUtilisateurService{
 	public int nbrUtilisateurs() {
 		return utilisateurDAO.nbrUtilisateurs();
 	}
+
+	@Override
+	public int nbrAdmin() {
+		return utilisateurDAO.nbrAdmin();
+	}
+
+	@Override
+	public int nbrCandidat() {
+		return utilisateurDAO.nbrCandidat();
+	}
 }

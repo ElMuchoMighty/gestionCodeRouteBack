@@ -64,5 +64,10 @@ public class UtilisateurController {
 		currentUser.setEmailUtilisateur(utilisateur.getEmailUtilisateur());
 		return utilisateurService.save(currentUser);
 	}
+	
+	@GetMapping("/utilisateurs/stats")
+	public int findAll2() {
+		return utilisateurService.nbrUtilisateurs();
+	}
 
 }
