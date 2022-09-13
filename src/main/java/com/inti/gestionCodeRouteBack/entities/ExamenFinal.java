@@ -1,5 +1,6 @@
 package com.inti.gestionCodeRouteBack.entities;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,9 +9,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Transient;
 
 @Entity
-public class ExamenFinal {
+public class ExamenFinal implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,6 +21,7 @@ public class ExamenFinal {
 	private int resultatFinal;
 	private String commentaireFinal;
 	@OneToMany(mappedBy = "examenFinal")
+	@Transient
 	private List<Test> tests = new ArrayList<>();
 	
 	
