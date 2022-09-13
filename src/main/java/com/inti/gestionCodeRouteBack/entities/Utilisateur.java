@@ -2,6 +2,7 @@ package com.inti.gestionCodeRouteBack.entities;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.List;
@@ -18,6 +19,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 public class Utilisateur implements Serializable{
 	@Id
@@ -28,7 +31,8 @@ public class Utilisateur implements Serializable{
 	@Column(unique = true)
 	private String username;
 	private String password;
-	private String dateNaissanceUtilisateur;
+	@DateTimeFormat(pattern ="dd/MM/yyyy")
+	private Date dateNaissanceUtilisateur;
 	private String emailUtilisateur;
 	private long telUtilisateur;
 	
@@ -61,7 +65,7 @@ public class Utilisateur implements Serializable{
 
 
 	public Utilisateur(String nomUtilisateur, String prenomUtilisateur, String username, String password,
-			String dateNaissanceUtilisateur, String emailUtilisateur, long telUtilisateur, Set<Role> roles,
+			Date dateNaissanceUtilisateur, String emailUtilisateur, long telUtilisateur, Set<Role> roles,
 			Set<Test> tests, Set<Cours> cours, List<Rapport> rapports, List<Favoris> favoris,
 			List<PermisDeConduire> permisdeconduires, AutoEcole autoecole) {
 		this.nomUtilisateur = nomUtilisateur;
@@ -122,11 +126,11 @@ public class Utilisateur implements Serializable{
 		this.password = password;
 	}
 
-	public String getDateNaissanceUtilisateur() {
+	public Date getDateNaissanceUtilisateur() {
 		return dateNaissanceUtilisateur;
 	}
 
-	public void setDateNaissanceUtilisateur(String dateNaissanceUtilisateur) {
+	public void setDateNaissanceUtilisateur(Date dateNaissanceUtilisateur) {
 		this.dateNaissanceUtilisateur = dateNaissanceUtilisateur;
 	}
 
