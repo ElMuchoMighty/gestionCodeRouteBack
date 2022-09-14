@@ -28,9 +28,6 @@ public class PermisDeConduire {
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(joinColumns = @JoinColumn(name = "id_permis", referencedColumnName = "idPermis"), inverseJoinColumns = @JoinColumn(name = "id_vehicules", referencedColumnName = "idVehicules"))
 	private Set<Vehicules> vehicules = new HashSet<>();
-	@ManyToMany(fetch = FetchType.EAGER)
-	@JoinTable(joinColumns = @JoinColumn(name = "id_permis", referencedColumnName = "idPermis"), inverseJoinColumns = @JoinColumn(name = "id_moniteur", referencedColumnName = "idMoniteur"))
-	private Set<Moniteur> moniteurs = new HashSet<>();
 	@ManyToOne
 	@JoinColumn(name = "id_utilisateur")
 	private Utilisateur utilisateur;
@@ -38,19 +35,21 @@ public class PermisDeConduire {
 	public PermisDeConduire() {
 	}
 	
+	
+	
 
 	public PermisDeConduire(Long idPermis, String libPermis, String villePermis, String paysPermis,
-			Set<AssuranceAuto> assurance_auto, Set<Vehicules> vehicules, Set<Moniteur> moniteurs,
-			Utilisateur utilisateur) {
+			Set<AssuranceAuto> assurance_auto, Set<Vehicules> vehicules, Utilisateur utilisateur) {
 		this.idPermis = idPermis;
 		this.libPermis = libPermis;
 		this.villePermis = villePermis;
 		this.paysPermis = paysPermis;
 		this.assurance_auto = assurance_auto;
 		this.vehicules = vehicules;
-		this.moniteurs = moniteurs;
 		this.utilisateur = utilisateur;
 	}
+
+
 
 
 	public Long getIdPermis() {
@@ -101,14 +100,6 @@ public class PermisDeConduire {
 		this.vehicules = vehicules;
 	}
 
-	public Set<Moniteur> getMoniteurs() {
-		return moniteurs;
-	}
-
-	public void setMoniteurs(Set<Moniteur> moniteurs) {
-		this.moniteurs = moniteurs;
-	}
-
 	public Utilisateur getUtilisateur() {
 		return utilisateur;
 	}
@@ -116,6 +107,7 @@ public class PermisDeConduire {
 	public void setUtilisateur(Utilisateur utilisateur) {
 		this.utilisateur = utilisateur;
 	}
+	
 
 
 	

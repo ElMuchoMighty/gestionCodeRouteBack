@@ -27,7 +27,9 @@ public class Moniteur {
 	private String descriptionMoniteur;
 	private long telephoneMoniteur;
 	private String emailMoniteur;
-
+	@ManyToMany(fetch = FetchType.EAGER)
+	@JoinTable(joinColumns = @JoinColumn(name = "id_moniteur", referencedColumnName = "idMoniteur"), inverseJoinColumns = @JoinColumn(name = "id_permis", referencedColumnName = "idPermis"))
+	private Set<PermisDeConduire> permisDeConduire = new HashSet<>();
 	@ManyToOne
 	@JoinColumn(name = "id_autoecole")
 	private AutoEcole autoecole;
@@ -35,9 +37,26 @@ public class Moniteur {
 	public Moniteur() {
 	}
 
+	
+	
+	public Moniteur(String nomMoniteur, String prenomMoniteur, long anneeMoniteur, String descriptionMoniteur,
+			long telephoneMoniteur, String emailMoniteur, Set<PermisDeConduire> permisDeConduire, AutoEcole autoecole) {
+	
+		this.nomMoniteur = nomMoniteur;
+		this.prenomMoniteur = prenomMoniteur;
+		this.anneeMoniteur = anneeMoniteur;
+		this.descriptionMoniteur = descriptionMoniteur;
+		this.telephoneMoniteur = telephoneMoniteur;
+		this.emailMoniteur = emailMoniteur;
+		this.permisDeConduire = permisDeConduire;
+		this.autoecole = autoecole;
+	}
+
+
+
 	public Moniteur(Long idMoniteur, String nomMoniteur, String prenomMoniteur, long anneeMoniteur,
-			String descriptionMoniteur, long telephoneMoniteur, String emailMoniteur, AutoEcole autoecole) {
-		super();
+			String descriptionMoniteur, long telephoneMoniteur, String emailMoniteur,
+			Set<PermisDeConduire> permisDeConduire, AutoEcole autoecole) {
 		this.idMoniteur = idMoniteur;
 		this.nomMoniteur = nomMoniteur;
 		this.prenomMoniteur = prenomMoniteur;
@@ -45,17 +64,11 @@ public class Moniteur {
 		this.descriptionMoniteur = descriptionMoniteur;
 		this.telephoneMoniteur = telephoneMoniteur;
 		this.emailMoniteur = emailMoniteur;
+		this.permisDeConduire = permisDeConduire;
 		this.autoecole = autoecole;
 	}
 
 
-	public AutoEcole getAutoecole() {
-		return autoecole;
-	}
-
-	public void setAutoecole(AutoEcole autoecole) {
-		this.autoecole = autoecole;
-	}
 
 	public Long getIdMoniteur() {
 		return idMoniteur;
@@ -113,6 +126,23 @@ public class Moniteur {
 		this.emailMoniteur = emailMoniteur;
 	}
 
+	public Set<PermisDeConduire> getPermisDeConduire() {
+		return permisDeConduire;
+	}
 
+	public void setPermisDeConduire(Set<PermisDeConduire> permisDeConduire) {
+		this.permisDeConduire = permisDeConduire;
+	}
+
+	public AutoEcole getAutoecole() {
+		return autoecole;
+	}
+
+	public void setAutoecole(AutoEcole autoecole) {
+		this.autoecole = autoecole;
+	}
+
+	
+	
 
 }

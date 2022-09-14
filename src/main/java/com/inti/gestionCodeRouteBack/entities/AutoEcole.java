@@ -2,29 +2,27 @@ package com.inti.gestionCodeRouteBack.entities;
 
 import java.util.List;
 
-import javax.annotation.Generated;
-import javax.persistence.Embedded;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-import com.inti.gestionCodeRouteBack.model.Adresse;
+
 
 @Entity
 public class AutoEcole {
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	private Long idAutoEcole;
-	@Embedded
-	private Adresse adresseAutoEcole;
 	private String contactAutoEcole;
 	private String emailAutoEcole;
 	private long telephoneAutoEcole;
 	private String enseigneAutoEcole;
-	@OneToMany(mappedBy = "autoecole")
-	private List<Utilisateur> utilisateurAutoEcole;
+	private String region;
+	private String ville;
+	
 	@OneToMany(mappedBy = "autoecole")
 	private List<Moniteur> moniteurAutoEcole;
 	@OneToMany(mappedBy = "autoEcoleRendezVous")
@@ -33,19 +31,26 @@ public class AutoEcole {
 	public AutoEcole() {
 	}
 
-	public AutoEcole(Adresse adresseAutoEcole, String contactAutoEcole, String emailAutoEcole, long telephoneAutoEcole,
-			String enseigneAutoEcole, List<Utilisateur> utilisateurAutoEcole, List<Moniteur> moniteurAutoEcole,
+	
+	
+	
+	public AutoEcole(Long idAutoEcole, String contactAutoEcole, String emailAutoEcole, long telephoneAutoEcole,
+			String enseigneAutoEcole, String region, String ville, List<Moniteur> moniteurAutoEcole,
 			List<RendezVous> rendezVousAutoEcole) {
 		super();
-		this.adresseAutoEcole = adresseAutoEcole;
+		this.idAutoEcole = idAutoEcole;
 		this.contactAutoEcole = contactAutoEcole;
 		this.emailAutoEcole = emailAutoEcole;
 		this.telephoneAutoEcole = telephoneAutoEcole;
 		this.enseigneAutoEcole = enseigneAutoEcole;
-		this.utilisateurAutoEcole = utilisateurAutoEcole;
+		this.region = region;
+		this.ville = ville;
 		this.moniteurAutoEcole = moniteurAutoEcole;
 		this.rendezVousAutoEcole = rendezVousAutoEcole;
 	}
+
+
+
 
 	public Long getIdAutoEcole() {
 		return idAutoEcole;
@@ -53,14 +58,6 @@ public class AutoEcole {
 
 	public void setIdAutoEcole(Long idAutoEcole) {
 		this.idAutoEcole = idAutoEcole;
-	}
-
-	public Adresse getAdresseAutoEcole() {
-		return adresseAutoEcole;
-	}
-
-	public void setAdresseAutoEcole(Adresse adresseAutoEcole) {
-		this.adresseAutoEcole = adresseAutoEcole;
 	}
 
 	public String getContactAutoEcole() {
@@ -95,12 +92,20 @@ public class AutoEcole {
 		this.enseigneAutoEcole = enseigneAutoEcole;
 	}
 
-	public List<Utilisateur> getUtilisateurAutoEcole() {
-		return utilisateurAutoEcole;
+	public String getRegion() {
+		return region;
 	}
 
-	public void setUtilisateurAutoEcole(List<Utilisateur> utilisateurAutoEcole) {
-		this.utilisateurAutoEcole = utilisateurAutoEcole;
+	public void setRegion(String region) {
+		this.region = region;
+	}
+
+	public String getVille() {
+		return ville;
+	}
+
+	public void setVille(String ville) {
+		this.ville = ville;
 	}
 
 	public List<Moniteur> getMoniteurAutoEcole() {
@@ -118,5 +123,12 @@ public class AutoEcole {
 	public void setRendezVousAutoEcole(List<RendezVous> rendezVousAutoEcole) {
 		this.rendezVousAutoEcole = rendezVousAutoEcole;
 	}
+	
+	
+	
 
+
+	
+	
+	
 }
