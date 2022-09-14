@@ -38,7 +38,12 @@ public class MoniteurController {
 	@PostMapping("/moniteurs") // @RequestMapping(value="/moniteur", method=RequestMethod.POST)
 	public Moniteur saveMoniteur(@RequestBody Moniteur moniteur) {
 
-		Moniteur currentMoniteur= new Moniteur(moniteur.getNomMoniteur(),moniteur.getPrenomMoniteur(),moniteur.getAnneeMoniteur(),moniteur.getDescriptionMoniteur(),moniteur.getTelephoneMoniteur(),moniteur.getEmailMoniteur(),moniteur.getPermisDeConduire()
+		Moniteur currentMoniteur= new Moniteur(moniteur.getNomMoniteur(),
+				moniteur.getPrenomMoniteur(),moniteur.getAnneeMoniteur(),
+				moniteur.getDescriptionMoniteur(),
+				moniteur.getTelephoneMoniteur(),
+				moniteur.getEmailMoniteur(),
+				moniteur.getPermisDeConduire()
 				,moniteur.getAutoecole());
 		
 		return moniteurService.save(currentMoniteur);

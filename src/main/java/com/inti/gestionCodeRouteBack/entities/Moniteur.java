@@ -1,5 +1,6 @@
 package com.inti.gestionCodeRouteBack.entities;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -16,7 +17,7 @@ import javax.persistence.ManyToOne;
 //import javax.persistence.Entity;
 
 @Entity
-public class Moniteur {
+public class Moniteur implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,7 +29,7 @@ public class Moniteur {
 	private long telephoneMoniteur;
 	private String emailMoniteur;
 	@ManyToMany(fetch = FetchType.EAGER)
-	@JoinTable(joinColumns = @JoinColumn(name = "id_moniteur", referencedColumnName = "idMoniteur"), inverseJoinColumns = @JoinColumn(name = "id_permis", referencedColumnName = "idPermis"))
+	@JoinTable(name = "permisassos", joinColumns = @JoinColumn(name = "id_moniteur", referencedColumnName = "idMoniteur"), inverseJoinColumns = @JoinColumn(name = "id_permis", referencedColumnName = "idPermis"))
 	private Set<PermisDeConduire> permisDeConduire = new HashSet<>();
 	@ManyToOne
 	@JoinColumn(name = "id_autoecole")

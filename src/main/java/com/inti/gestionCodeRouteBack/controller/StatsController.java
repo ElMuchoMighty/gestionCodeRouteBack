@@ -18,7 +18,7 @@ public class StatsController {
 		@Autowired
 		IRoleService roleService;
 		
-		@GetMapping("/statistique") 
+		@GetMapping("/statistiqueR") 
 		public int Nombre() {
 			return utilisateurService.nbrUtilisateurs();
 		}
