@@ -48,7 +48,9 @@ public class RendezVousController {
 		RendezVous currentUser = rendezVousService.findOne(id);
 		currentUser.setDateRendezVous(rendezVous.getDateRendezVous());
 		currentUser.setHeureRendezVous(rendezVous.getHeureRendezVous());
-		return rendezVousService.save(rendezVous);
+		currentUser.setAutoEcoleRendezVous(rendezVous.getAutoEcoleRendezVous());
+		return rendezVousService.save(currentUser);
 	}
+	
 
 }

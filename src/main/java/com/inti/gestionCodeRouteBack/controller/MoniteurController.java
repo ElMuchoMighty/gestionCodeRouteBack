@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.inti.gestionCodeRouteBack.entities.Moniteur;
+import com.inti.gestionCodeRouteBack.entities.Utilisateur;
 import com.inti.gestionCodeRouteBack.service.interfaces.IMoniteurService;
 
 @RestController // RestFul WS
@@ -52,6 +53,21 @@ public class MoniteurController {
 	@DeleteMapping("/moniteurs/{idMoniteur}") // @RequestMapping(value="/moniteur/{idMoniteur}", method=RequestMethod.DELETE)
 	public void deleteMoniteur(@PathVariable("idMoniteur") Long id) {
 		moniteurService.delete(id);
+	}
+	
+	@PutMapping("/moniteurs/{idMoniteur}") 
+	public Moniteur updateMoniteurWithPut(@PathVariable("idMoniteur") Long id,@RequestBody Moniteur moniteur) { //
+		Moniteur currentUser = moniteurService.findOne(id); 
+		System.out.println(currentUser.toString());
+		currentUser.setNomMoniteur(moniteur.getNomMoniteur()); 
+		currentUser.setPrenomMoniteur(moniteur.getPrenomMoniteur());
+		currentUser.setAnneeMoniteur(moniteur.getAnneeMoniteur());
+		currentUser.setDescriptionMoniteur(moniteur.getDescriptionMoniteur());
+		currentUser.setTelephoneMoniteur(moniteur.getTelephoneMoniteur());
+		currentUser.setEmailMoniteur(moniteur.getEmailMoniteur());
+		currentUser.setPermisDeConduire(moniteur.getPermisDeConduire());
+		currentUser.setAutoecole(moniteur.getAutoecole());
+		return moniteurService.save(currentUser);
 	}
 
 }
